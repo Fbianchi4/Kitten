@@ -1,0 +1,37 @@
+class Square extends Shape {
+
+  field int l
+  
+  constructor() { }
+  
+  constructor(int l)
+    this.l := l
+  
+  method int perimeter()
+    return this.l * 4
+    
+  method int area()
+    return this.l * this.l
+    
+  method String toString()
+    return "Square(".concat(this.l).concat(")\nPerimeter: ").concat(this.perimeter()).concat("\nArea: ").concat(this.area())
+  
+  /*method void main() {
+    Square s := new Square(4);
+    s.toString().output()
+  }*/
+  
+  test testPerimeter
+    assert(this.perimeter() / 4 = this.l)
+    
+  test testArea
+    assert(this.area() / this.l = this.l)
+    
+  test testNegativeSide {
+    this.l := -10;
+    assert(this.l > 0)
+  }
+  
+  fixture
+    this.l := 10
+}

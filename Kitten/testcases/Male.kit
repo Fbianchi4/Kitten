@@ -1,0 +1,28 @@
+class Male extends Person {
+
+  field int age
+  
+  constructor() { }
+  
+  constructor(int age)
+    this.age := age
+  
+  method int age()
+    return this.age
+    
+  method String toString()
+	return "Male ".concat(this.age).concat(" years old\n ")  
+  
+  /*method void main() {
+    Male m3 := new Male(4);
+    m3.toString().output()
+  }*/
+    
+  test testAge {
+    Male m4 := new Male(14);
+    assert(m4.age > 10)
+  }
+  
+  fixture
+    this.age := 34
+}

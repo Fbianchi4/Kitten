@@ -1,0 +1,70 @@
+class Scramble
+{
+    
+    field int[] array
+    field int size
+    
+    constructor(int[] array, int size)
+    {
+        this.array := array;
+        this.size := size
+    }
+    
+    method void scramble()
+    {
+        int[] before := new int[1];
+        this.recScramble(before, 0, this.array, this.size)
+    }
+    
+    method void recScramble(int[] before, int lb, int[] after, int la)
+    {
+        int i := 0;
+        int j := 0;
+        String res := "";
+        
+        if (la = 0) then
+        {
+            for (i := 0; i < lb; i := i + 1)
+                res := res.concat(before[i]);
+                
+            res.concat("\n").output()
+        }
+        else
+        {
+            for (i := 0; i < la; i := i + 1)
+            {
+                int[] newBefore := new int[lb + 1];
+                int[] newAfter := new int[1];
+                
+                if (la > 1) then
+                    newAfter := new int[la - 1];
+            
+                for (j := 0; j < lb; j := j + 1)
+                    newBefore[j] := before[j];
+                
+                newBefore[j] := after[i];
+
+                for (j := 0; j < i; j := j + 1)
+                    newAfter[j] := after[j];
+
+                for (j := i + 1; j < la; j:= j + 1)
+                    newAfter[j - 1] := after[j];
+
+                this.recScramble(newBefore, lb + 1, newAfter, la - 1)
+            }
+        }
+    }
+    
+    method void main()
+    {
+        int SIZE := 6;
+        int[] array := new int[SIZE];
+        int i := 0;
+        
+        for (i := 0; i < SIZE; i := i + 1)
+            array[i] := i;
+        
+        new Scramble(array, SIZE).scramble()
+    }
+
+}

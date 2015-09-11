@@ -1,0 +1,15 @@
+bin/*
+ant-build/*
+testcases/*.dot
+testcases/*.class
+src/syntactical/Parser.java
+src/syntactical/Lexer.java
+src/syntactical/sym.java
+build.properties
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+/bin/

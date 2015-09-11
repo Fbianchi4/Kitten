@@ -1,0 +1,47 @@
+class Female extends Person {
+
+  field int height
+  field String color
+  
+  constructor() { }
+  
+  constructor(int height)
+    this.height := height
+  
+  constructor(int height, String color) {
+  
+  	this.height := height;
+  	this.color := color
+  }
+  
+  method int height()
+    return this.height
+    
+  method String color()
+    return this.color
+    
+  method String toString()
+    return "Female ".concat(this.height).concat(" cm \n ")
+  
+  method String toString2()
+    return "Female ".concat(this.color).concat("\n")
+  
+  /*method void main() {
+    Female f4 := new Female(4);
+    f4.toString().output()
+  }*/ 
+    
+  test testHeight {
+    Female f5 := new Female(160);
+    f5.toString().output();
+    assert(this.height > 140)
+  }
+  
+  test testColorHair {
+  	Female f6 := new Female(190,"blonde");
+  	f6.toString2().output()
+  }
+  
+  fixture
+    this.height := 165
+}

@@ -1,0 +1,43 @@
+class Rectangle extends Shape {
+
+  field int b
+  field int h
+  
+  constructor() { }
+
+  constructor(int b, int h) {
+    this.b := b;
+    this.h := h
+  }
+  
+  method int perimeter()
+    return this.b * 2 + this.h * 2
+    
+  method int area()
+    return this.b * this.h
+    
+  method String toString()
+    return "Square(".concat(this.b).concat(",").concat(this.h).concat(")\nPerimeter: ").concat(this.perimeter()).concat("\nArea: ").concat(this.area())
+  
+  /*method void main() {
+    Rectangle r := new Rectangle(6, 7);
+    r.toString().output()
+  }*/
+  
+  test testPerimeter
+    assert(this.perimeter() - (this.b * 2) = this.h * 2)
+    
+  test testArea
+    assert(this.area() / this.b = this.h)
+    
+  test testNegativeSide {
+    this.b := -10;
+    assert(this.b > 0)
+  }
+  
+  fixture
+    this.b := 10
+    
+  fixture
+    this.h := 5
+}
